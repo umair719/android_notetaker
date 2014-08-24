@@ -9,11 +9,11 @@
     tools:context="com.umair.notetaker.MainActivity" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/saveButton"
         android:layout_width="144dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Save" />
+        android:text="@string/save" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -22,7 +22,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content" android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -33,15 +33,17 @@
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Title:"
+                    android:text="@string/title"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <EditText
-                    android:id="@+id/editText1"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/titleEditText"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10" >
+                    android:ems="10"
+                    android:inputType="text"
+                    tools:ignore="NestedWeights" >
 
                     <requestFocus />
                 </EditText>
@@ -56,16 +58,18 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Date"
+                    android:text="@string/date"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <EditText
-                    android:id="@+id/editText2"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/dateTextView"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    tools:ignore="NestedWeights" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -74,11 +78,11 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Note:"
+            android:text="@string/note"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/noteEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
