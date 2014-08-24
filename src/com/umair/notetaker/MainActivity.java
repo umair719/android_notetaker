@@ -1,5 +1,8 @@
 package com.umair.notetaker;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -8,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -33,6 +37,15 @@ public class MainActivity extends ActionBarActivity {
 					saveButton.setText("Edit");
 					titleEditText.setEnabled(false);
 					noteEditText.setEnabled(false);
+
+					TextView dateTextView = (TextView) findViewById(R.id.dateTextView);
+
+					SimpleDateFormat dateFormat = new SimpleDateFormat(
+							"dd-MM-yyyy HH:mm:ss");
+					String date = dateFormat.format(Calendar.getInstance()
+							.getTime());
+					dateTextView.setText(date);
+
 				} else {
 					isInEditMode = true;
 					saveButton.setText("Save");
@@ -40,7 +53,6 @@ public class MainActivity extends ActionBarActivity {
 					noteEditText.setEnabled(true);
 				}
 
-				
 				// dateTextView.setEnabled(false);
 			}
 		});
