@@ -11,6 +11,8 @@ import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 
+	private boolean isInEditMode = true;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,13 +23,25 @@ public class MainActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
-				EditText titleEditText = (EditText)findViewById(R.id.titleEditText);
-				EditText noteEditText = (EditText)findViewById(R.id.noteEditText);
-				//EditText dateTextView = (EditText)findViewById(R.id.dateTextView);
+				EditText titleEditText = (EditText) findViewById(R.id.titleEditText);
+				EditText noteEditText = (EditText) findViewById(R.id.noteEditText);
+				// EditText dateTextView =
+				// (EditText)findViewById(R.id.dateTextView);
+
+				if (isInEditMode) {
+					isInEditMode = false;
+					saveButton.setText("Edit");
+					titleEditText.setEnabled(false);
+					noteEditText.setEnabled(false);
+				} else {
+					isInEditMode = true;
+					saveButton.setText("Save");
+					titleEditText.setEnabled(true);
+					noteEditText.setEnabled(true);
+				}
+
 				
-				titleEditText.setEnabled(false);
-				noteEditText.setEnabled(false);
-				//dateTextView.setEnabled(false);
+				// dateTextView.setEnabled(false);
 			}
 		});
 	}
