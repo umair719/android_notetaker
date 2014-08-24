@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -20,7 +21,13 @@ public class MainActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
-				saveButton.setText("Clicked");
+				EditText titleEditText = (EditText)findViewById(R.id.titleEditText);
+				EditText noteEditText = (EditText)findViewById(R.id.noteEditText);
+				//EditText dateTextView = (EditText)findViewById(R.id.dateTextView);
+				
+				titleEditText.setEnabled(false);
+				noteEditText.setEnabled(false);
+				//dateTextView.setEnabled(false);
 			}
 		});
 	}
