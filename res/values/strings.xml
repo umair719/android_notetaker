@@ -8,5 +8,6 @@
     <string name="title">Title:</string>
     <string name="date">Date</string>
     <string name="note">Note:</string>
+    <string name="title_activity_list_notes">Note Taker</string>
 
 </resources>
