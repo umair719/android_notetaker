@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class ListNotesActivity extends ActionBarActivity {
+public class ListNotesActivity extends Activity {
 
 	private List<Note> notes = new ArrayList<Note>();
 
@@ -33,7 +33,7 @@ public class ListNotesActivity extends ActionBarActivity {
 		for (Note note : notes) {
 			values.add(note.getTitle());
 		}
-		
+
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, android.R.id.text1, values);
 		notesListView.setAdapter(adapter);
@@ -52,10 +52,20 @@ public class ListNotesActivity extends ActionBarActivity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		notes.add(new Note("Added note", "Blah", new Date()));
+
+		ListView notesListView = (ListView) findViewById(R.id.notesListView);
+
+		List<String> values = new ArrayList<String>();
+
+		for (Note note : notes) {
+			values.add(note.getTitle());
 		}
-		return super.onOptionsItemSelected(item);
+
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, android.R.id.text1, values);
+		notesListView.setAdapter(adapter);
+
+		return true;
 	}
 }
